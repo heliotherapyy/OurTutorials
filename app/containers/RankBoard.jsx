@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 class RankBoard extends Component {
 
+
   render() {
     const {links, categories} = this.props;
 
@@ -13,7 +14,7 @@ class RankBoard extends Component {
         <div>
           <h1>{category.name}</h1>
           <LinkList links={category.links} />
-          <EntryBox />
+          <EntryBox  />
         </div>
       );
     });

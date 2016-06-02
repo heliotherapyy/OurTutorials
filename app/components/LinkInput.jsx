@@ -8,46 +8,51 @@ export default class LinkInput extends Component {
     this.onChange = this.onChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   	}
-    onSave() {
-    	console.log('save');
-      // const { onEntrySave, value, currentCategory} = this.props;
-      // onEntrySave(currentCategory, value);
-    }
 
-    /*
-     * Invokes the callback passed in as onSave, allowing this component to be
-     * used in different ways. I personally think this makes it more reusable.
-     */
-    onChange(event) {
-    	console.log('event');
-      // const { onEntryChange } = this.props;
-      // onEntryChange(event.target.value);
-    }
+  onSave() {
+  	console.log('save');
+    // const { onEntrySave, value, currentCategory} = this.props;
+    // onEntrySave(currentCategory, value);
+  }
 
-    /*
-     * @param  {object} event
-     */
-    onKeyDown(event) {
-      console.log('keyDown');
-      if (event.keyCode === ENTER_KEY_CODE) {
-        this.onSave();
-      }
-    }
 
-    render() {
-      // const { className, placeholder, value } = this.props;
-      return (
-        <input 
-          />
-      );
+  /*
+   * @param  {object} event
+   */
+  onKeyDown(event) {
+    console.log('keyDown');
+    if (event.keyCode === ENTER_KEY_CODE) {
+      this.onSave();
     }
   }
 
-  CategoryInput.propTypes = {
-    className: PropTypes.string,
-    placeholder: PropTypes.string,
-    value: PropTypes.string,
-    onEntrySave: PropTypes.func,
-    onEntryChange: PropTypes.func,
-    currentCategory: PropTypes.string
+  render() {
+    // const { className, placeholder, value } = this.props;
+    return (
+      <div>
+        <form>
+          Title:
+          <input type="text" name="title"/><br />
+          Link:
+          <input type="text" name="link" /><br />
+          Summary:
+          <input type="text" name="summary"/><br />
+          Tag:
+          <input type="text" name="tag"/><br />
+          Thumbnail:
+          <input type="text" name="thumbnail"/><br />
+          <input onClick={this.onSave} type="button" value="Add link" />
+        </form>
+      </div>
+    );
+  }
+}
+
+  LinkInput.propTypes = {
+    // className: PropTypes.string,
+    // placeholder: PropTypes.string,
+    // value: PropTypes.string,
+    // onEntrySave: PropTypes.func,
+    // onEntryChange: PropTypes.func,
+    // currentCategory: PropTypes.string
   };
