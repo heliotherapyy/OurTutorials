@@ -5,7 +5,6 @@ export default class LinkInput extends Component {
   constructor(props) {
     super(props);
     this.onSave = this.onSave.bind(this);
-    this.onChange = this.onChange.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   	}
 
@@ -41,7 +40,7 @@ export default class LinkInput extends Component {
           <input type="text" name="tag"/><br />
           Thumbnail:
           <input type="text" name="thumbnail"/><br />
-          <input onClick={this.onSave} type="button" value="Add link" />
+          <input type="button" value="Add link" />
         </form>
       </div>
     );
