@@ -84,6 +84,7 @@ export function addCategory(parentId, name) {
     if(name.trim().length <= 0) return;
 
     const { category } = getState();
+
     if (category.categories.filter(categoryItem => categoryItem.name === name.trim()).length > 0) {
       return dispatch(addCategoryDuplicate());
     }else {

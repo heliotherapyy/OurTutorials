@@ -1,14 +1,26 @@
 import React, { Component, PropTypes } from 'react';
-import LinkList from 'components/LinkList'
+import LinkList from 'components/LinkList';
+import EntryBox from 'components/EntryBox';
 import { connect } from 'react-redux';
 
 class RankBoard extends Component {
+
   render() {
-    const {links} = this.props;
+    const {links, categories} = this.props;
+
+    const categoryList = categories.map((category, key) => {
+      return (
+        <div>
+          <h1>{category.name}</h1>
+          <LinkList links={category.links} />
+          <EntryBox />
+        </div>
+      );
+    });
 
     return (
       <div>
-        <LinkList links={links}/>
+        {categoryList}
       </div>
     )
   }
@@ -20,8 +32,10 @@ RankBoard.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    links: state.category.links
+    links: state.category.links,
+    categories: state.category.categories,
   }
 }
 
+// store.subscribe(RankBoard)
 export default connect(mapStateToProps)(RankBoard);

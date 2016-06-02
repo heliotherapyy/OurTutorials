@@ -28,10 +28,12 @@ class Tutorial extends Component {
           onGetLinks = {getAllLinks}
           currentCategory = {currentCategory}
           />
+        {/*
         <EntryBox newCategory = {newCategory}
           currentCategory = {currentCategory}
           onEntryChange = {typing}
           onEntrySave = {addCategory}/>
+        */}
       </div>
     );
   }
