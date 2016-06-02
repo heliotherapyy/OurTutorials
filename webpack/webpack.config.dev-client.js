@@ -47,6 +47,8 @@ module.exports = {
         ],
         loaders: [
         {
+            // everytime it sees files that end with .jsx
+            // it reads it via "react-hot!babel"
             test: /\.jsx?$/,
             include: path.join(__dirname, '..', 'app'),
             loader: 'babel',

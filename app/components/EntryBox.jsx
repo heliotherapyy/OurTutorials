@@ -13,11 +13,11 @@ const cx = classNames.bind(styles);
 const EntryBox = ({onEntryChange, onEntrySave, newCategory, currentCategory}) => {
   return (
     <div className={cx('entrybox')}>
-      <h1 className={cx('header')}>Tutorial Categories</h1>
+      <h1 className={cx('header')}>Links</h1>
       <CategoryInput
         className={cx('input')}
         value={newCategory}
-        placeholder="+ Add Category!! +"
+        placeholder="+ Add Link!! +"
         currentCategory={currentCategory}
         onEntryChange={onEntryChange}
         onEntrySave={onEntrySave} />
