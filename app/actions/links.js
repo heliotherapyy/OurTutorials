@@ -24,12 +24,12 @@ export function destroy(index) {
 }
 
 
-export function typing(text) {
+/*export function typing(text) {
   return {
     type: types.TYPING,
     newLink: text
   };
-}
+}*/
 
 /*
  * @param data

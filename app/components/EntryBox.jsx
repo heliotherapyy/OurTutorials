@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import CategoryInput from 'components/CategoryInput';
+import LinkInput from 'components/LinkInput';
 import classNames from 'classnames/bind';
 import styles from 'css/components/entrybox';
 
@@ -13,15 +14,9 @@ const cx = classNames.bind(styles);
 const EntryBox = ({onEntryChange, onEntrySave, newCategory, currentCategory}) => {
   return (
     <div className={cx('entrybox')}>
-      <h1 className={cx('header')}>Links</h1>
-      <CategoryInput
-        className={cx('input')}
-        value={newCategory}
-        placeholder="+ Add Link!! +"
-        currentCategory={currentCategory}
-        onEntryChange={onEntryChange}
-        onEntrySave={onEntrySave} />
+      <LinkInput />
     </div>
+
   );
 };
 
