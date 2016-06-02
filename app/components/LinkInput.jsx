@@ -8,10 +8,19 @@ export default class LinkInput extends Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   	}
 
-  onSave() {
-  	console.log('save');
-    // const { onEntrySave, value, currentCategory} = this.props;
-    // onEntrySave(currentCategory, value);
+
+
+  onSave(e) {
+    e.preventDefault();
+    const data = {
+    title: e.target.title.value,
+    link: e.target.link.value,
+    summary: e.target.summary.value,
+    tag: e.target.tag.value
+    };
+  	console.log(data);
+    // const { onEntrySave } = this.props;
+    // onEntrySave(/*text*/);
   }
 
 
@@ -29,18 +38,16 @@ export default class LinkInput extends Component {
     // const { className, placeholder, value } = this.props;
     return (
       <div>
-        <form>
+        <form onSubmit ={e => this.onSave(e)}>
           Title:
-          <input type="text" name="title"/><br />
+          <input type="text" name="title" onChange={(event) => { event.preventDefault(); console.log(event.target.value); }}/><br />
           Link:
           <input type="text" name="link" /><br />
           Summary:
           <input type="text" name="summary"/><br />
           Tag:
           <input type="text" name="tag"/><br />
-          Thumbnail:
-          <input type="text" name="thumbnail"/><br />
-          <input type="button" value="Add link" />
+          <input type="submit" value="Add link" />
         </form>
       </div>
     );
@@ -55,3 +62,9 @@ export default class LinkInput extends Component {
     // onEntryChange: PropTypes.func,
     // currentCategory: PropTypes.string
   };
+
+function mapStateToProps(state) {
+  return {
+
+  }
+}

@@ -11,7 +11,8 @@ const cx = classNames.bind(styles);
 // to grandchild. To make it cleaner, you could consider:
 // 1. moving `connect` down to this component so you could mapStateToProps and dispatch
 // 2. Move LinkTextInput up to EntryBox so it's less confusing
-const EntryBox = ({onEntryChange, onEntrySave, newCategory, currentCategory}) => {
+const EntryBox = ({onEntrySave}) => {
+
   return (
     <div className={cx('entrybox')}>
       {/*<h1 className={cx('header')}>Links</h1>*/}
@@ -25,16 +26,16 @@ const EntryBox = ({onEntryChange, onEntrySave, newCategory, currentCategory}) =>
               onEntrySave={onEntrySave} />
       */}
 
-      <LinkInput />
+      <LinkInput onEntrySave ={onEntrySave}/>
     </div>
 
   );
 };
 
 EntryBox.propTypes = {
-  newCategory: PropTypes.string,
-  currentCategory: PropTypes.string,
-  onEntryChange: PropTypes.func.isRequired,
+  // newCategory: PropTypes.string,
+  // currentCategory: PropTypes.string,
+  // onEntryChange: PropTypes.func.isRequired,
   onEntrySave: PropTypes.func.isRequired
 };
 
