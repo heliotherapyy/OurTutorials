@@ -16,13 +16,12 @@ import {
 
 export default function category(state = {
   categories: [],
-  currentCategory: '',
-  currentCategory_2: {
-    _id: '',
-    _name: '',
-    _depth: 0
+  currentCategory: {
+    id: '',
+    name: '',
+    depth: 0
   },
-  // newCategory: '',
+  newCategory: '',
   links: []
 },action) {
   switch (action.type) {
@@ -38,7 +37,11 @@ export default function category(state = {
       return Object.assign({}, state, {
         isFetching: false,
         categories: action.req.data,
-        currentCategory: ''
+        currentCategory: {
+          id: '',
+          name: '',
+          depth: 0
+        }
       });
     case GET_CATEGORIES_FAILURE:
       return Object.assign({}, state, {
@@ -52,7 +55,11 @@ export default function category(state = {
       return Object.assign({}, state, {
         isFetching: false,
         categories: action.req.data,
-        currentCategory: action.id
+        currentCategory: {
+          id: action.id,
+          name: action.name,
+          depth: 1
+        }
       });
     case GET_CHILDREN_FAILURE:
       return Object.assign({}, state, {
@@ -65,8 +72,11 @@ export default function category(state = {
     case GET_ALL_LINKS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        // currentCategory_2._id: action.id,
-        // currentCategory_2._name: action.name,
+        currentCategory: {
+          id: action.id,
+          name: action.name,
+          depth: 2
+        },
         links: action.req.data
       });
     case GET_ALL_LINKS_FAILURE:

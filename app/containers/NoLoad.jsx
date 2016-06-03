@@ -32,7 +32,7 @@ class NoLoad extends Component {
 
 NoLoad.propTypes = {
   categories: PropTypes.array.isRequired,
-  currentCategory: PropTypes.string,
+  currentCategory: PropTypes.object,
   newCategory: PropTypes.string,
   getChildren: PropTypes.func.isRequired,
   getAllLinks: PropTypes.func.isRequired,

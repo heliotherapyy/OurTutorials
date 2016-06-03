@@ -11,7 +11,6 @@ const MainSection = ({onGetChildren, onGetLinks, categories, currentCategory}) =
     return (
       <CategoryItem index={key}
         id={category._id}
-        name={category.name}
         key={key}
         name={category.name}
         category={category}
@@ -34,7 +33,7 @@ MainSection.propTypes = {
   categories: PropTypes.array.isRequired,
   onGetChildren: PropTypes.func.isRequired,
   onGetLinks: PropTypes.func.isRequired,
-  currentCategory: PropTypes.string.isRequired
+  currentCategory: PropTypes.object.isRequired
 };
 
 export default MainSection;

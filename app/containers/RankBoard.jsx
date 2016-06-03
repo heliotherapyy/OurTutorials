@@ -8,7 +8,7 @@ class RankBoard extends Component {
 
 
   render() {
-    const {links} = this.props;
+    const {links, currentCategory} = this.props;
 
     // const categoryList = categories.map((category, key) => {
     //   return (
@@ -22,7 +22,8 @@ class RankBoard extends Component {
 
     return (
       <div>
-        <h1>Link1</h1>
+        <h1>{currentCategory.name}</h1>
+        <LinkList links={links}/>
       </div>
     )
   }
@@ -35,7 +36,7 @@ RankBoard.propTypes = {
 function mapStateToProps(state) {
   return {
     links: state.category.links,
-    // currentCategory: state.category.
+    currentCategory: state.category.currentCategory
   }
 }
 
