@@ -10,7 +10,7 @@ const MainSection = ({onGetChildren, onGetLinks, categories, currentCategory}) =
   const categoryItems = categories.map((category, key) => {
     return (
       <CategoryItem index={key}
-        id={category.parent._id}
+        id={category.parent}
         key={key}
         name={category.name}
         category={category}
