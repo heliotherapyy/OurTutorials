@@ -44,7 +44,7 @@ export function getChildren(id) {
   };
 }
 
-export function getAllLinks(id) {
+export function getAllLinks(id, name) {
   return {
     type: types.GET_ALL_LINKS,
     promise: makeLinkRequest('post', {

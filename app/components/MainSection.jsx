@@ -11,6 +11,7 @@ const MainSection = ({onGetChildren, onGetLinks, categories, currentCategory}) =
     return (
       <CategoryItem index={key}
         id={category._id}
+        name={category.name}
         key={key}
         name={category.name}
         category={category}

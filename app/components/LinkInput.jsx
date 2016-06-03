@@ -13,14 +13,14 @@ export default class LinkInput extends Component {
   onSave(e) {
     e.preventDefault();
     const data = {
-    title: e.target.title.value,
-    link: e.target.link.value,
-    summary: e.target.summary.value,
-    tag: e.target.tag.value
+      title: e.target.title.value,
+      link: e.target.link.value,
+      summary: e.target.summary.value,
+      tag: e.target.tag.value
     };
   	console.log(data);
     // const { onEntrySave } = this.props;
-    // onEntrySave(/*text*/);
+    // onEntrySave(data, categoryname);
   }
 
 
