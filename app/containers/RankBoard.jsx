@@ -8,21 +8,21 @@ class RankBoard extends Component {
 
 
   render() {
-    const {links, categories} = this.props;
+    const {links} = this.props;
 
-    const categoryList = categories.map((category, key) => {
-      return (
-        <div>
-          <h1>{category.name}</h1>
-          <LinkList links={category.links} />
-          <EntryBox  onEntrySave = {createLinks} />
-        </div>
-      );
-    });
+    // const categoryList = categories.map((category, key) => {
+    //   return (
+    //     <div>
+    //       <h1>{category.name}</h1>
+    //       <LinkList links={category.links} />
+    //       <EntryBox  onEntrySave = {createLinks} />
+    //     </div>
+    //   );
+    // });
 
     return (
       <div>
-        {categoryList}
+        <h1>Link1</h1>
       </div>
     )
   }
@@ -35,7 +35,7 @@ RankBoard.propTypes = {
 function mapStateToProps(state) {
   return {
     links: state.category.links,
-    categories: state.category.categories,
+    // currentCategory: state.category.
   }
 }
 

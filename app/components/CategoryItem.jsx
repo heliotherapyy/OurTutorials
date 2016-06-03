@@ -19,12 +19,14 @@ export default class CategoryItem extends Component {
   }
 
   onGetLinks() {
-    const { id, onGetLinks } = this.props;
-    onGetLinks(id);
+    const { id, name, onGetLinks } = this.props;
+    onGetLinks(id, name);
   }
 
   render() {
+    // if(!this.props.currentCategory){
     if(!this.props.currentCategory){
+
       // console.log('currentCategory: ',this.props.currentCategory);
       return(
         <Link to ={'/category'}>
@@ -53,6 +55,7 @@ export default class CategoryItem extends Component {
 
   }
 }
+
 
 CategoryItem.propTypes = {
   name: PropTypes.string.isRequired,

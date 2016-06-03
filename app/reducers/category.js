@@ -17,7 +17,12 @@ import {
 export default function category(state = {
   categories: [],
   currentCategory: '',
-  newCategory: '',
+  currentCategory_2: {
+    _id: '',
+    _name: '',
+    _depth: 0
+  },
+  // newCategory: '',
   links: []
 },action) {
   switch (action.type) {
@@ -60,6 +65,8 @@ export default function category(state = {
     case GET_ALL_LINKS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
+        // currentCategory_2._id: action.id,
+        // currentCategory_2._name: action.name,
         links: action.req.data
       });
     case GET_ALL_LINKS_FAILURE:
