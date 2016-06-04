@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import MainSection from 'components/MainSection';
 import EntryBox from 'components/EntryBox';
 import { fetchCategories, getChildren, addCategory, getAllLinks, typing } from 'actions/categories'
+import {createLink} from 'actions/links';
 import styles from 'css/components/Tutorial';
 
 const cx = classNames.bind(styles);
@@ -50,5 +51,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  getChildren, addCategory, getAllLinks, typing}
+  getChildren, addCategory, getAllLinks, typing, createLink}
 )(NoLoad);

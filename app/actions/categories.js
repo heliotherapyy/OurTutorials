@@ -84,7 +84,11 @@ export function addCategory(parentId, name) {
   //   newCategoryName: name
   // })
 
+  console.log(parentId);
+
   return (dispatch, getState) => {
+    console.log('inside');
+
     if(name.trim().length <= 0) return;
 
     const { category } = getState();

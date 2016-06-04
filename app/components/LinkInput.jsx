@@ -11,16 +11,18 @@ export default class LinkInput extends Component {
 
 
   onSave(e) {
+    const { currentCategory, onEntrySave } = this.props;
     e.preventDefault();
+    // console.log('onEntrySave: ', onEntrySave);
     const data = {
       title: e.target.title.value,
       link: e.target.link.value,
       summary: e.target.summary.value,
       tag: e.target.tag.value
     };
-  	console.log(data);
+  	// console.log(onEntrySave);
     // const { onEntrySave } = this.props;
-    // onEntrySave(data, categoryname);
+    onEntrySave(data, currentCategory.name);
   }
 
 
@@ -40,7 +42,7 @@ export default class LinkInput extends Component {
       <div>
         <form onSubmit ={e => this.onSave(e)}>
           Title:
-          <input type="text" name="title" onChange={(event) => { event.preventDefault(); console.log(event.target.value); }}/><br />
+          <input type="text" name="title" /><br />
           Link:
           <input type="text" name="link" /><br />
           Summary:
@@ -65,6 +67,6 @@ export default class LinkInput extends Component {
 
 function mapStateToProps(state) {
   return {
-
+    // currentCategory: state.currentCategory
   }
 }

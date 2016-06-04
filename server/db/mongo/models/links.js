@@ -17,7 +17,8 @@ const LinkSchema = new Schema({
 	},
 	tag:[String],
 	summary: {
-		type: String
+		type: String,
+		default : 'this is summary'
 	},
 	like : {
 		type: Number,

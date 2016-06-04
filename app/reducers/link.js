@@ -69,6 +69,10 @@ export default function link(state = {
         ],
         newLink: state.newLink
       };
+    // case GET_ALL_LINKS_SUCCESS:
+    //   return Object.assign({}, state, {
+    //     links: action.req.data
+    //   });
 
     default:
       return state;

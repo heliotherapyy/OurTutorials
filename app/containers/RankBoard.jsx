@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import LinkList from 'components/LinkList';
 import EntryBox from 'components/EntryBox';
 import { connect } from 'react-redux';
-import {createLinks, fetchLinks, incrementLike, decrementLike, destroyLink} from 'actions/links';
+import {createLink, fetchLinks, incrementLike, decrementLike, destroyLink} from 'actions/links';
+import { addCategory } from 'actions/categories';
 
 class RankBoard extends Component {
 
@@ -22,7 +23,7 @@ class RankBoard extends Component {
     return (
       <div>
         <h1>{currentCategory.name}</h1>
-        <EntryBox  onEntrySave = {createLinks} />
+        <EntryBox  onEntrySave = { addCategory} currentCategory ={currentCategory} />
         <LinkList links={links}/>
 
       </div>

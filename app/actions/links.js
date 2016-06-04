@@ -7,8 +7,9 @@ import * as types from 'types';
 polyfill();
 
 // 아래에서 쓰일 util 함수. /link/:id 로 data를 넘기는 promise를 리턴한다.
-export function makeLinkRequest(method, id, data, api = '/link') {
-  return request[method](api + (id ? ('/' + id) : ''), data);
+export function makeLinkRequest(method, data, currentCategoryName, api = '/put') {
+  // return request[method](api + (id ? ('/' + id) : ''), data);
+  return request[method](api + '/' + currentCategoryName + '/' + data.title, data);
 }
 
 export function increment(index) {
@@ -38,23 +39,20 @@ export function typing(text) {
 export function createLinkRequest(data) {
   return {
     type: types.CREATE_LINK_REQUEST,
-    id: data.id,
-    like: data.like,
-    text: data.text
+    data: data
   };
 }
 
-export function createLinkSuccess() {
+export function createLinkSuccess(data) {
   return {
-    type: types.CREATE_LINK_SUCCESS
+    type: types.CREATE_LINK_SUCCESS,
   };
 }
 
-export function createLinkFailure(data) {
+export function createLinkFailure() {
   return {
     type: types.CREATE_LINK_FAILURE,
-    id: data.id,
-    error: data.error
+    data: data
   };
 }
 
@@ -68,45 +66,44 @@ export function createLinkDuplicate() {
 // which will get executed by Redux-Thunk middleware
 // This function does not need to be pure, and thus allowed
 // to have side effects, including executing asynchronous API calls.
-export function createLink(text) {
-  return (dispatch, getState) => {
+export function createLink(data, currentCategoryName) {
+  console.log('createLink');
+  return (dispatch) => {
     // If the text box is empty
-    if (text.trim().length <= 0) return;
+    // if (text.trim().length <= 0) return;
 
-    const id = md5.hash(text);
+    // const id = md5.hash(text);
     // Redux thunk's middleware receives the store methods `dispatch`
     // and `getState` as parameters
-    const { link } = getState();
-    const data = {
-      like: 0,
-      id,
-      text
-    };
+    // const { link } = getState();
+
 
     // Conditional dispatch
     // If the link already exists, make sure we emit a dispatch event
-    if (link.links.filter(linkItem => linkItem.id === id).length > 0) {
-      // Currently there is no reducer that changes state for this
-      // For production you would ideally have a message reducer that
-      // notifies the user of a duplicate link
-      return dispatch(createLinkDuplicate());
-    }
+    // if (link.links.filter(linkItem => linkItem.id === id).length > 0) {
+    //   // Currently there is no reducer that changes state for this
+    //   // For production you would ideally have a message reducer that
+    //   // notifies the user of a duplicate link
+    //   return dispatch(createLinkDuplicate());
+    // }
 
     // First dispatch an optimistic update
-    dispatch(createLinkRequest(data));
+    console.log('?????');
 
-    return makeLinkRequest('post', id, data)
+    return makeLinkRequest('put', data, currentCategoryName)
       .then(res => {
         if (res.status === 200) {
           // We can actually dispatch a CREATE_LINK_SUCCESS
           // on success, but I've opted to leave that out
           // since we already did an optimistic update
           // We could return res.json();
-          return dispatch(createLinkSuccess());
+          console.log('SUCCESS?');
+          return dispatch(createLinkSuccess(res.data));
         }
       })
-      .catch(() => {
-        return dispatch(createLinkFailure({ id, error: 'Oops! Something went wrong and we couldn\'t create your link'}));
+      .catch((err) => {
+        console.log('failure: ',err);
+        return dispatch(createLinkFailure());
       });
   };
 }

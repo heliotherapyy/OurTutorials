@@ -11,6 +11,10 @@ import {
   ADD_CATEGORY_SUCCESS,
   ADD_CATEGORY_FAILURE,
   TYPING,
+  CREATE_LINK_REQUEST,
+  CREATE_LINK_SUCCESS,
+  CREATE_LINK_FAILURE
+
 } from 'types';
 
 
@@ -83,10 +87,34 @@ export default function category(state = {
       return Object.assign({}, state, {
         isFetching: false
       });
+    case CREATE_LINK_REQUEST:
+      return Object.assign({}, state, {
+        links: [...state.links, {
+          _id: 'temporary id',
+          title: action.data.title,
+          link: action.data.link,
+          like: 0,
+          summary: action.data.summary,
+          thumbnail: 'temporary thumbnail'
+        }]
+      });
+    case CREATE_LINK_SUCCESS:
+      return Object.assign({}, state, {
+        links: [...state.links, {
+          _id: 'temporary id',
+          title: action.data.title,
+          link: action.data.link,
+          like: 0,
+          summary: action.data.summary,
+          thumbnail: 'temporary thumbnail'
+        }]
+      });
+    case CREATE_LINK_FAILURE:
+      return Object.assign({}, state, {
+      });
     case ADD_CATEGORY_SUCCESS:
       return {
         categories: [...state.categories, {
-          _id: action.id, name: action.name
         }],
         currentCategory: action.parentId
       };
