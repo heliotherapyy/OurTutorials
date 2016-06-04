@@ -109,4 +109,3 @@ export function addCategory(parentId, name) {
     }
   }
 }
-
