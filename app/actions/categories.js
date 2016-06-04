@@ -33,20 +33,23 @@ export function fetchCategories() {
   };
 }
 
-export function getChildren(id) {
+export function getChildren(id, name) {
   // console.log('parentId: ', id);
   return {
     type: types.GET_CHILDREN,
     id: id,
+    name: name,
     promise: makeChildrenRequest('post', {
       categoryId : id
     })
   };
 }
 
-export function getAllLinks(id) {
+export function getAllLinks(id, name) {
   return {
     type: types.GET_ALL_LINKS,
+    id: id,
+    name: name,
     promise: makeLinkRequest('post', {
       categoryId: id
     })

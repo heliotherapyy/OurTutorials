@@ -8,8 +8,6 @@ export default class LinkInput extends Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   	}
 
-
-
   onSave(e) {
     e.preventDefault();
     const data = {
@@ -20,7 +18,7 @@ export default class LinkInput extends Component {
     };
   	console.log(data);
     // const { onEntrySave } = this.props;
-    onEntrySave(/*text*/);
+    // onEntrySave(data, categoryname);
   }
 
 
