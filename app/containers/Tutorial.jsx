@@ -14,10 +14,9 @@ class Tutorial extends Component {
   //This is used for server side rending via the fetchComponentDataBeforeRender() method
 
   // 서버사이드 렌더링에서 처음에 필요한 작업이 need에 정의 돼 있는 상태.
-  static need = [
+    static need = [
         fetchCategories
-  ]
-
+    ]
 
   render() {
     const {currentCategory, newCategory, categories, getChildren, getAllLinks, addCategory, typing, url } = this.props;
@@ -28,10 +27,12 @@ class Tutorial extends Component {
           onGetLinks = {getAllLinks}
           currentCategory = {currentCategory}
           />
+        {/*
         <EntryBox newCategory = {newCategory}
           currentCategory = {currentCategory}
           onEntryChange = {typing}
           onEntrySave = {addCategory}/>
+        */}
       </div>
     );
   }
@@ -39,7 +40,7 @@ class Tutorial extends Component {
 
 Tutorial.propTypes = {
   categories: PropTypes.array.isRequired,
-  currentCategory: PropTypes.string,
+  currentCategory: PropTypes.object,
   newCategory: PropTypes.string,
   getChildren: PropTypes.func.isRequired,
   getAllLinks: PropTypes.func.isRequired,

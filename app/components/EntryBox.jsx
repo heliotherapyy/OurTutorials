@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import CategoryInput from 'components/CategoryInput';
+import LinkInput from 'components/LinkInput';
 import classNames from 'classnames/bind';
 import styles from 'css/components/entrybox';
 
@@ -10,25 +11,31 @@ const cx = classNames.bind(styles);
 // to grandchild. To make it cleaner, you could consider:
 // 1. moving `connect` down to this component so you could mapStateToProps and dispatch
 // 2. Move LinkTextInput up to EntryBox so it's less confusing
-const EntryBox = ({onEntryChange, onEntrySave, newCategory, currentCategory}) => {
+const EntryBox = ({onEntrySave}) => {
+
   return (
     <div className={cx('entrybox')}>
-      <h1 className={cx('header')}>Tutorial Categories</h1>
-      <CategoryInput
-        className={cx('input')}
-        value={newCategory}
-        placeholder="+ Add Category!! +"
-        currentCategory={currentCategory}
-        onEntryChange={onEntryChange}
-        onEntrySave={onEntrySave} />
+      {/*<h1 className={cx('header')}>Links</h1>*/}
+
+      {/*<CategoryInput
+              className={cx('input')}
+              value={newCategory}
+              placeholder="+ Add Link +"
+              currentCategory={currentCategory}
+              onEntryChange={onEntryChange}
+              onEntrySave={onEntrySave} />
+      */}
+
+      <LinkInput onEntrySave ={onEntrySave}/>
     </div>
+
   );
 };
 
 EntryBox.propTypes = {
-  newCategory: PropTypes.string,
-  currentCategory: PropTypes.string,
-  onEntryChange: PropTypes.func.isRequired,
+  // newCategory: PropTypes.string,
+  // currentCategory: PropTypes.string,
+  // onEntryChange: PropTypes.func.isRequired,
   onEntrySave: PropTypes.func.isRequired
 };
 

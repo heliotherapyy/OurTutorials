@@ -14,17 +14,19 @@ export default class CategoryItem extends Component {
   }
 
   onGetChildren() {
-    const { id, onGetChildren } = this.props;
-    onGetChildren(id);
+    const { id, name, onGetChildren } = this.props;
+    onGetChildren(id, name);
   }
 
   onGetLinks() {
-    const { id, onGetLinks } = this.props;
-    onGetLinks(id);
+    const { id, name, onGetLinks } = this.props;
+    onGetLinks(id, name);
   }
 
   render() {
-    if(!this.props.currentCategory){
+    // if(!this.props.currentCategory){
+    if(!this.props.currentCategory.depth){
+
       // console.log('currentCategory: ',this.props.currentCategory);
       return(
         <Link to ={'/category'}>
@@ -54,11 +56,12 @@ export default class CategoryItem extends Component {
   }
 }
 
+
 CategoryItem.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onGetChildren: PropTypes.func.isRequired,
   onGetLinks: PropTypes.func.isRequired,
-  currentCategory: PropTypes.string.isRequired
+  currentCategory: PropTypes.object.isRequired
 };

@@ -4,6 +4,7 @@ import request from 'axios';
 import md5 from 'spark-md5';
 import * as types from 'types';
 
+
 polyfill();
 
 export function typing(text) {
@@ -32,20 +33,23 @@ export function fetchCategories() {
   };
 }
 
-export function getChildren(id) {
+export function getChildren(id, name) {
   // console.log('parentId: ', id);
   return {
     type: types.GET_CHILDREN,
     id: id,
+    name: name,
     promise: makeChildrenRequest('post', {
       categoryId : id
     })
   };
 }
 
-export function getAllLinks(id) {
+export function getAllLinks(id, name) {
   return {
     type: types.GET_ALL_LINKS,
+    id: id,
+    name: name,
     promise: makeLinkRequest('post', {
       categoryId: id
     })
@@ -84,6 +88,7 @@ export function addCategory(parentId, name) {
     if(name.trim().length <= 0) return;
 
     const { category } = getState();
+
     if (category.categories.filter(categoryItem => categoryItem.name === name.trim()).length > 0) {
       return dispatch(addCategoryDuplicate());
     }else {

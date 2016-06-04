@@ -33,7 +33,7 @@ MainSection.propTypes = {
   categories: PropTypes.array.isRequired,
   onGetChildren: PropTypes.func.isRequired,
   onGetLinks: PropTypes.func.isRequired,
-  currentCategory: PropTypes.string.isRequired
+  currentCategory: PropTypes.object.isRequired
 };
 
 export default MainSection;

@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fnil\fcharset129 AppleSDGothicNeo-Regular;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14200\viewh16580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 General 
+\fs24 \
+web pack \'c0\'bb \'bb\'e7\'bf\'eb\'c7\'d2 \'b6\'a7 \'ba\'ea\'b6\'f3\'bf\'ec\'c0\'fa\'bf\'a1\'bc\'ad \'bd\'c7\'c7\'e0\'b5\'c7\'b4\'c2 \'c4\'da\'b5\'e5\'b4\'c2 web pack \'c0\'b8\'b7\'ce \'c4\'c4\'c6\'c4\'c0\'cf\'b5\'c8 \'c4\'da\'b5\'e5\
+devtool 
+\f1\fs48 \
+\
+package.json
+\fs40 \
+
+\fs24 1. css-loader:  without this, it cannot load css file via 
+\i require. 
+\i0 So it converts CSS into valid JS\
+	require(\'91css!./bear.css\'92) -> \'93read bear.css and send it to css-loader so that it can read as JS file.\'94\
+2. style-loader: apply read CSS (-> JS) as style\
+	require(\'91style!css!./bear.css\'92)\
+\
+
+\fs48 CSS @import
+\fs40 \
+
+\fs24 @import \'91base.css\'92 \
+\
+
+\fs48 webpack.config.js\
+
+\f0\fs24 \'a1\'b0\'b8\'c5 
+\f1 require 
+\f0 \'b8\'b6\'b4\'d9 
+\f1 prefix 
+\f0 \'b8\'a6 \'b8\'b8\'b5\'e9 \'bc\'f6 \'be\'f8\'c0\'b8\'b4\'cf \'c7\'cf\'b3\'aa\'b7\'ce \'c5\'eb\'c7\'d5\'c7\'d8\'bc\'ad \'b0\'fc\'b8\'ae\'c7\'cf\'c0\'da\'a1\'b1\
+\'c0\'cc\'b0\'c9 \'bc\'b3\'c1\'a4\'c7\'d8\'b3\'f5\'c0\'b8\'b8\'e9 require \'c7\'d2\'b6\'a7 prefix \'b8\'a6 \'bb\'ac \'bc\'f6 \'c0\'d6\'b4\'d9\
+\
+\'b0\'a3\'b4\'dc\'c7\'d1 \'b1\'b8\'c1\'b6\'c0\'c7 \'b0\'e6\'bf\'ec\'bf\'a1\'b4\'c2 web pack ./entry.js bundle.js CLI \'b6\'f3\'b0\'ed \'c7\'cf\'b8\'e9 \'b5\'c7\'b4\'c2\'b5\'a5,\
+entry \'c6\'c4\'c0\'cf\'c0\'cc \'b8\'b9\'be\'c6\'c1\'f6\'b8\'e9 \'be\'b2\'b1\'e2 \'b1\'cd\'c2\'fa\'be\'c6\'c1\'f6\'b4\'cf\'b1\'ee config \'b8\'a6 \'b8\'b8\'b5\'e7\'b4\'d9\
+\
+loader: \'b4\'d9\'be\'e7\'c7\'d1 \'b8\'ae\'bc\'d2\'bd\'ba\'b8\'a6 Javascript  \'bf\'a1\'bc\'ad \'b9\'d9\'b7\'ce \'bb\'e7\'bf\'eb\'c7\'d2 \'bc\'f6 \'c0\'d6\'b0\'d4 \'b7\'ce\'b5\'f9\'c7\'cf\'b4\'c2 \'b1\'e2\'bc\'fa\
+\{\
+	test: /\\.css?$/,\
+	loaders: [\'a1\'aestyle\'a1\'af, \'a1\'aecss\'a1\'af, \'a1\'aescss\'a1\'af] // \'b7\'ce\'b5\'f9 \'bc\'f8\'bc\'ad\'b4\'c2 from right to left\
+\}\
+\
+\'b1\'d7 config \'b4\'eb\'b7\'ce \'bd\'c7\'c7\'e0\'c7\'cf\'b7\'c1\'b8\'e9\
+	webpack \uc0\u8212 config myconfig.js\
+\
+entry\'b0\'a1 \'b9\'e8\'bf\'ad\'b7\'ce \'b9\'de\'b4\'c2 \'c0\'cc\'c0\'af\'b4\'c2 \'bf\'a9\'b7\'af \'c6\'c4\'c0\'cf\'c0\'bb \'c7\'cf\'b3\'aa\'b7\'ce \'ba\'b4\'c7\'d5\'c7\'cf\'b4\'c2 \'b8\'f1\'c0\'fb.\
+\
+webpack.config.js \'c0\'da\'c3\'bc\'b4\'c2 web pack \'c0\'cc \'b1\'e2\'ba\'bb\'c0\'fb\'c0\'b8\'b7\'ce \'c0\'ce\'bd\'c4\'c7\'cf\'b4\'c2 \'c6\'c4\'c0\'cf\'b8\'ed. \'b4\'d9\'b8\'a5 \'c0\'cc\'b8\'a7\'c0\'ba \uc0\u8212 config \'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'d8\'be\'df \'c7\'d4\
+\
+
+\fs48 webpack-dev-server\
+
+\fs24 \'bd\'c7\'c1\'a6\'b7\'ce \'ba\'ea\'b6\'f3\'bf\'ec\'c0\'fa\'bf\'a1\'bc\'ad \'c0\'a5\'bb\'e7\'c0\'cc\'c6\'ae\'b8\'a6 \'ba\'bc \'bc\'f6 \'c0\'d6\'b5\'b5\'b7\'cf \'c1\'f6\'b1\'dd\'b1\'ee\'c1\'f6 \'b8\'b8\'b5\'e9\'be\'ee\'c1\'f8 \'c4\'da\'b5\'e5\'b8\'a6 \'c1\'a6\'b0\'f8\'c7\'cf\'b4\'c2 \'c0\'a5\'bc\'ad\'b9\'f6\'c0\'c7 \'c7\'ca\'bf\'e4\'bc\'ba\
+\
+\
+Reference:\
+{\field{\*\fldinst{HYPERLINK "http://code.hootsuite.com/webpack-101/"}}{\fldrslt http://code.hootsuite.com/webpack-101/}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://css-tricks.com/learning-react-router/"}}{\fldrslt \cf0 https://css-tricks.com/learning-react-router/}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 propTypes : handle validation}

@@ -18,10 +18,13 @@ class NoLoad extends Component {
           onGetLinks = {getAllLinks}
           currentCategory = {currentCategory}
           />
-          <EntryBox newCategory = {newCategory}
-            currentCategory = {currentCategory}
-            onEntryChange = {typing}
-            onEntrySave = {addCategory}/>
+        {/*
+        <EntryBox newCategory = {newCategory}
+          currentCategory = {currentCategory}
+          onEntryChange = {typing}
+          onEntrySave = {addCategory}/>
+        */}
+
       </div>
     );
   }
@@ -29,7 +32,7 @@ class NoLoad extends Component {
 
 NoLoad.propTypes = {
   categories: PropTypes.array.isRequired,
-  currentCategory: PropTypes.string,
+  currentCategory: PropTypes.object,
   newCategory: PropTypes.string,
   getChildren: PropTypes.func.isRequired,
   getAllLinks: PropTypes.func.isRequired,
